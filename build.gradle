@@ -1,0 +1,42 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.1'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.mysql:mysql-connector-j'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+// https://mvnrepository.com/artifact/org.aspectj/aspectjtools
+    implementation 'org.aspectj:aspectjtools:1.9.21'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-jdbc
+    implementation 'org.springframework:spring-jdbc:6.1.2'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-oxm
+    implementation 'org.springframework:spring-oxm:6.1.2'
+    // https://mvnrepository.com/artifact/org.hsqldb/com.springsource.org.hsqldb
+    testImplementation 'org.hsqldb:hsqldb:2.6.1' // 최신 버전 사용을 권장
+
+    implementation("org.glassfish.jaxb:jaxb-runtime:4.0.3")
+    implementation("jakarta.xml.bind:jakarta.xml.bind-api:4.0.0")
+
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
